@@ -79,6 +79,27 @@
     box-shadow: 0 4px 12px rgba(0, 255, 65, 0.1);
 }
 
+.blog-post-preview.featured {
+    border-color: var(--secondary);
+    box-shadow: 0 2px 8px rgba(255, 204, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-post-preview.featured::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.blog-post-preview.featured:hover {
+    box-shadow: 0 6px 16px rgba(255, 204, 0, 0.2);
+}
+
 .blog-post-preview time {
     color: var(--secondary);
     font-family: 'Space Mono', monospace;

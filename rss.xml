@@ -5,8 +5,16 @@
     <link>https://binarybourbon.github.io</link>
     <description>Practical lessons from building AI systems that actually ship. No hype, just patterns that work.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 Feb 2025 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 18 Feb 2025 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://binarybourbon.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>When Agents Fail: The $1.2M Customer Service Meltdown</title>
+      <link>https://binarybourbon.github.io/blog/2025/02/when-agents-fail-case-study.html</link>
+      <description>Case study: How our AI customer service agent went rogue, offered everyone refunds, and what we learned from the most expensive 47 minutes of my career.</description>
+      <pubDate>Tue, 18 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://binarybourbon.github.io/blog/2025/02/when-agents-fail-case-study.html</guid>
+    </item>
     
     <item>
       <title>Error Boundaries for AI: What React Taught Me About LLM Failures</title>

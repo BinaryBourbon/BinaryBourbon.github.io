@@ -421,6 +421,15 @@ footer {
     box-shadow: 0 8px 16px rgba(0, 255, 65, 0.2);
 }
 
+.portfolio-card.featured {
+    border-color: var(--secondary);
+    box-shadow: 0 2px 8px rgba(255, 204, 0, 0.1);
+}
+
+.portfolio-card.featured:hover {
+    box-shadow: 0 8px 16px rgba(255, 204, 0, 0.2);
+}
+
 .portfolio-card h3 {
     font-family: 'Space Mono', monospace;
     color: var(--secondary);
