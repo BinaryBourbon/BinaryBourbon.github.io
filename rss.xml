@@ -5,8 +5,16 @@
     <link>https://binarybourbon.github.io</link>
     <description>Practical lessons from building AI systems that actually ship. No hype, just patterns that work.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Jan 2025 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 05 Feb 2025 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://binarybourbon.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>Building Cost-Effective RAG: From $3K to $150/month</title>
+      <link>https://binarybourbon.github.io/blog/2025/01/building-cost-effective-rag.html</link>
+      <description>Complete guide to building RAG systems that don't break the bank. Real techniques that reduced our costs by 95% while improving quality.</description>
+      <pubDate>Wed, 05 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://binarybourbon.github.io/blog/2025/01/building-cost-effective-rag.html</guid>
+    </item>
     
     <item>
       <title>The $200/mo AI SaaS: Architecture That Scales</title>

@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/assets/css/calculator.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
 </head>
 <body>
     <!-- Dark mode toggle -->
@@ -52,9 +53,24 @@
         </nav>
 
         <section class="calculator-hero">
-            <h2>// Production ML Cost Calculator</h2>
-            <p>Stop burning cash on inference. Calculate real costs with caching, compare models, and find your ROI sweet spot.</p>
+            <h2>// ML Cost Calculator v2</h2>
+            <p>Advanced cost modeling with multi-model comparison, intelligent routing, and break-even analysis. Save up to 95% on inference costs.</p>
         </section>
+
+        <div class="calculator-controls">
+            <label class="toggle-control">
+                <input type="checkbox" id="comparisonToggle" checked>
+                <span>Comparison Mode</span>
+            </label>
+            <label class="toggle-control">
+                <input type="checkbox" id="advancedToggle">
+                <span>Advanced Settings</span>
+            </label>
+            <label class="toggle-control">
+                <input type="checkbox" id="routingToggle">
+                <span>Routing Analysis</span>
+            </label>
+        </div>
 
         <section class="calculator-main">
             <div class="calculator-inputs">
@@ -78,6 +94,18 @@
                 </div>
 
                 <div class="input-group">
+                    <label for="cacheStrategy">Cache strategy</label>
+                    <select id="cacheStrategy">
+                        <option value="none">No Cache (0%)</option>
+                        <option value="basic">Basic Cache (20%)</option>
+                        <option value="semantic">Semantic Cache (45%)</option>
+                        <option value="hybrid">Hybrid Cache (65%)</option>
+                        <option value="enterprise">Enterprise Cache (85%)</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
                     <label for="cacheRate">Cache hit rate (%)</label>
                     <input type="range" id="cacheRate" value="0" min="0" max="95" step="5">
                     <span id="cacheRateValue">0%</span>
@@ -90,18 +118,53 @@
                         <option value="batch">Batch (50% discount)</option>
                     </select>
                 </div>
+
+                <div class="input-group">
+                    <label for="usagePattern">Usage pattern</label>
+                    <select id="usagePattern">
+                        <option value="steady">Steady (24/7)</option>
+                        <option value="business">Business hours</option>
+                        <option value="burst">Burst traffic</option>
+                        <option value="scheduled">Scheduled batch</option>
+                    </select>
+                </div>
+
+                <div class="advanced-section" style="display: none;">
+                    <h4>Advanced Parameters</h4>
+                    
+                    <div class="input-group">
+                        <label for="peakHours">Peak hours per day</label>
+                        <input type="number" id="peakHours" value="8" min="1" max="24">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="burstMultiplier">Burst traffic multiplier</label>
+                        <input type="number" id="burstMultiplier" value="1.5" min="1" max="10" step="0.1">
+                    </div>
+                </div>
             </div>
 
             <div class="model-comparison">
-                <h3>Model Comparison</h3>
+                <h3>Model Selection</h3>
                 <div id="modelCards" class="model-cards">
                     <!-- Model cards will be populated by JavaScript -->
                 </div>
             </div>
 
+            <div class="visualization-section">
+                <div class="chart-container">
+                    <h3>Multi-Model Comparison</h3>
+                    <canvas id="comparisonChart" height="300"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Cost Projections</h3>
+                    <canvas id="projectionChart" height="300"></canvas>
+                </div>
+            </div>
+
             <div class="cost-breakdown">
-                <h3>Monthly Cost Analysis</h3>
-                <canvas id="costChart" width="400" height="300"></canvas>
+                <h3>Cost Analysis</h3>
                 
                 <div class="savings-analysis">
                     <h4>Optimization Impact</h4>
@@ -109,10 +172,18 @@
                         <!-- Savings will be calculated by JavaScript -->
                     </div>
                 </div>
+
+                <div id="routingAnalysis" class="routing-analysis" style="display: none;">
+                    <!-- Routing analysis will be populated by JavaScript -->
+                </div>
+
+                <div id="breakEvenAnalysis" class="break-even-analysis">
+                    <!-- Break-even analysis will be populated by JavaScript -->
+                </div>
             </div>
 
             <div class="recommendations">
-                <h3>Recommendations</h3>
+                <h3>Optimization Recommendations</h3>
                 <div id="recommendations" class="recommendation-cards">
                     <!-- Recommendations will be generated by JavaScript -->
                 </div>
@@ -121,6 +192,7 @@
             <div class="export-section">
                 <button id="shareResults" class="btn-primary">Share Results</button>
                 <button id="exportCSV" class="btn-secondary">Export to CSV</button>
+                <button id="exportPDF" class="btn-secondary">Export to PDF</button>
             </div>
         </section>
 
@@ -134,45 +206,81 @@
                     <thead>
                         <tr>
                             <th>Model</th>
+                            <th>Provider</th>
                             <th>Input</th>
                             <th>Output</th>
                             <th>Cached Input</th>
+                            <th>Context</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>GPT-4 Turbo</td>
+                            <td>OpenAI</td>
                             <td>$10.00</td>
                             <td>$30.00</td>
                             <td>$5.00</td>
+                            <td>128K</td>
+                        </tr>
+                        <tr>
+                            <td>GPT-4o</td>
+                            <td>OpenAI</td>
+                            <td>$5.00</td>
+                            <td>$15.00</td>
+                            <td>$2.50</td>
+                            <td>128K</td>
                         </tr>
                         <tr>
                             <td>GPT-3.5 Turbo</td>
+                            <td>OpenAI</td>
                             <td>$0.50</td>
                             <td>$1.50</td>
                             <td>$0.25</td>
+                            <td>16K</td>
                         </tr>
                         <tr>
                             <td>Claude 3 Opus</td>
+                            <td>Anthropic</td>
                             <td>$15.00</td>
                             <td>$75.00</td>
                             <td>$7.50</td>
+                            <td>200K</td>
                         </tr>
                         <tr>
-                            <td>Claude 3 Sonnet</td>
+                            <td>Claude 3.5 Sonnet</td>
+                            <td>Anthropic</td>
                             <td>$3.00</td>
                             <td>$15.00</td>
                             <td>$1.50</td>
+                            <td>200K</td>
                         </tr>
                         <tr>
-                            <td>Llama 3 70B (Self-hosted)</td>
+                            <td>Gemini Pro</td>
+                            <td>Google</td>
+                            <td>$0.50</td>
+                            <td>$1.50</td>
+                            <td>$0.25</td>
+                            <td>32K</td>
+                        </tr>
+                        <tr>
+                            <td>Mixtral 8x7B</td>
+                            <td>Mistral</td>
+                            <td>$0.70</td>
+                            <td>$0.70</td>
+                            <td>$0.35</td>
+                            <td>32K</td>
+                        </tr>
+                        <tr>
+                            <td>Llama 3 70B</td>
+                            <td>Self-hosted</td>
                             <td>$0.20*</td>
                             <td>$0.20*</td>
                             <td>$0.10*</td>
+                            <td>8K</td>
                         </tr>
                     </tbody>
                 </table>
-                <small>* Self-hosted costs based on AWS g5.12xlarge instance amortized</small>
+                <small>* Self-hosted costs based on AWS g5.12xlarge instance amortized ($2K/month + $5K setup)</small>
             </div>
         </section>
 
@@ -182,6 +290,6 @@
     </div>
 
     <script src="/assets/js/theme.js"></script>
-    <script src="/assets/js/calculator.js"></script>
+    <script type="module" src="/assets/js/calculator-v2.js"></script>
 </body>
 </html>
