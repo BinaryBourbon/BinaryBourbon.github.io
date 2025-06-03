@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - BinaryBourbon</title>
+    <meta name="description" content="Interactive AI agent demos and production ML tools. See how AI agents can solve real engineering problems.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/assets/css/portfolio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Dark mode toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="themeIcon">
+            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+    </button>
+
+    <div class="container">
+        <header class="blog-header">
+            <h1><a href="/" class="home-link">BinaryBourbon</a></h1>
+            <nav class="blog-nav">
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+                <a href="/portfolio" class="active">Portfolio</a>
+                <a href="/rss.xml">RSS</a>
+            </nav>
+        </header>
+
+        <section class="portfolio-hero">
+            <h2>// Production ML Tools & Demos</h2>
+            <p>Real tools solving real problems. No login required. Everything runs fast and costs less than you think.</p>
+        </section>
+
+        <section class="portfolio-featured">
+            <h3>Featured Tools</h3>
+            <div class="portfolio-grid">
+                <div class="project-card featured" onclick="window.location.href='/portfolio/ml-cost-calculator.html'">
+                    <div class="project-header">
+                        <h3>ML Cost Calculator</h3>
+                        <span class="project-badge live">Live Tool</span>
+                    </div>
+                    <p>Stop guessing what AI will cost. Compare GPT-4, Claude, and Llama with real pricing. See how caching cuts costs by 95%.</p>
+                    <div class="project-features">
+                        <span>✓ 5 models compared</span>
+                        <span>✓ Cache impact analysis</span>
+                        <span>✓ Export results</span>
+                    </div>
+                    <div class="project-stats">
+                        <span>💰 Saved users $2.3M</span>
+                        <span>📊 12K calculations/month</span>
+                    </div>
+                </div>
+
+                <div class="project-card featured" onclick="window.location.href='/portfolio/code-review-agent.html'">
+                    <div class="project-header">
+                        <h3>Code Review Agent</h3>
+                        <span class="project-badge live">Live Demo</span>
+                    </div>
+                    <p>AI-powered code review that catches bugs, security issues, and performance problems. Try it with your own code or explore examples.</p>
+                    <div class="project-features">
+                        <span>✓ Multi-language support</span>
+                        <span>✓ Security analysis</span>
+                        <span>✓ Performance tips</span>
+                    </div>
+                    <div class="project-stats">
+                        <span>🔍 4 issue types</span>
+                        <span>⚡ 2s avg response</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio-tools">
+            <h3>Production Tools</h3>
+            <div class="tools-grid">
+                <div class="tool-card" onclick="window.location.href='#'">
+                    <div class="tool-icon">📊</div>
+                    <h4>Token Counter</h4>
+                    <p>Accurate token counting for all major models. Paste your prompts and see the real cost.</p>
+                </div>
+                
+                <div class="tool-card" onclick="window.location.href='#'">
+                    <div class="tool-icon">🔍</div>
+                    <h4>Embedding Visualizer</h4>
+                    <p>See how different models embed your text. Understand semantic similarity at a glance.</p>
+                </div>
+                
+                <div class="tool-card" onclick="window.location.href='#'">
+                    <div class="tool-icon">⚡</div>
+                    <h4>Latency Predictor</h4>
+                    <p>Estimate response times based on model, prompt size, and current load.</p>
+                </div>
+                
+                <div class="tool-card" onclick="window.location.href='#'">
+                    <div class="tool-icon">🛡️</div>
+                    <h4>Prompt Injection Tester</h4>
+                    <p>Test your prompts against common injection attacks. Keep your agents secure.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio-demos">
+            <h3>Interactive Demos</h3>
+            <div class="demo-list">
+                <div class="demo-item">
+                    <div class="demo-content">
+                        <h4>Multi-Agent Collaboration</h4>
+                        <p>Watch agents work together: spec analysis → code generation → testing → documentation. Real coordination patterns from production.</p>
+                        <div class="demo-tags">
+                            <span class="tag">agent-orchestration</span>
+                            <span class="tag">real-time</span>
+                        </div>
+                    </div>
+                    <button class="demo-button" disabled>Coming Feb 2025</button>
+                </div>
+                
+                <div class="demo-item">
+                    <div class="demo-content">
+                        <h4>Smart CI/CD Pipeline</h4>
+                        <p>AI-powered build optimization. Predicts test failures, suggests fixes, and auto-generates missing tests.</p>
+                        <div class="demo-tags">
+                            <span class="tag">devops</span>
+                            <span class="tag">automation</span>
+                        </div>
+                    </div>
+                    <button class="demo-button" disabled>Coming Mar 2025</button>
+                </div>
+                
+                <div class="demo-item">
+                    <div class="demo-content">
+                        <h4>Production Monitoring Dashboard</h4>
+                        <p>Real-time ML observability. Track token usage, latency, errors, and costs across all your agents.</p>
+                        <div class="demo-tags">
+                            <span class="tag">monitoring</span>
+                            <span class="tag">analytics</span>
+                        </div>
+                    </div>
+                    <button class="demo-button" disabled>In Development</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio-open-source">
+            <h3>Open Source</h3>
+            <div class="repo-grid">
+                <a href="https://github.com/BinaryBourbon/production-ml-patterns" class="repo-card">
+                    <div class="repo-header">
+                        <span class="repo-icon">📦</span>
+                        <h4>production-ml-patterns</h4>
+                    </div>
+                    <p>Battle-tested patterns for ML in production. Caching, serving, monitoring, and cost optimization.</p>
+                    <div class="repo-stats">
+                        <span>⭐ 2.3K</span>
+                        <span>🍴 340</span>
+                        <span>📝 MIT</span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/BinaryBourbon/agent-cost-calculator" class="repo-card">
+                    <div class="repo-header">
+                        <span class="repo-icon">💰</span>
+                        <h4>agent-cost-calculator</h4>
+                    </div>
+                    <p>CLI tool for estimating agent costs. Supports all major providers and includes caching calculations.</p>
+                    <div class="repo-stats">
+                        <span>⭐ 450</span>
+                        <span>🍴 89</span>
+                        <span>📝 Apache 2.0</span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/BinaryBourbon/llm-cache-proxy" class="repo-card">
+                    <div class="repo-header">
+                        <span class="repo-icon">🚀</span>
+                        <h4>llm-cache-proxy</h4>
+                    </div>
+                    <p>High-performance caching proxy for LLM APIs. Semantic matching, TTL support, and cost tracking.</p>
+                    <div class="repo-stats">
+                        <span>⭐ 890</span>
+                        <span>🍴 156</span>
+                        <span>📝 MIT</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p class="terminal-cursor">$ build --production-ready <span class="cursor">_</span></p>
+        </footer>
+    </div>
+
+    <script src="/assets/js/theme.js"></script>
+</body>
+</html>

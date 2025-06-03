@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Review Agent - BinaryBourbon</title>
+    <meta name="description" content="AI-powered code review that catches bugs, suggests improvements, and ensures best practices. See costs and confidence scores in real-time.">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/assets/css/code-review.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <!-- Dark mode toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="themeIcon">
+            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+    </button>
+
+    <div class="container">
+        <header class="blog-header">
+            <h1><a href="/" class="home-link">BinaryBourbon</a></h1>
+            <nav class="blog-nav">
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+                <a href="/portfolio">Portfolio</a>
+                <a href="/rss.xml">RSS</a>
+            </nav>
+        </header>
+
+        <section class="agent-hero">
+            <h2>// Code Review Agent</h2>
+            <p>Instant, intelligent code review. Catches bugs, suggests improvements, and ensures best practices – all in under 2 seconds.</p>
+        </section>
+
+        <section class="agent-demo">
+            <div class="demo-controls">
+                <div class="language-selector">
+                    <label>Language:</label>
+                    <select id="languageSelect">
+                        <option value="javascript">JavaScript</option>
+                        <option value="python">Python</option>
+                        <option value="go">Go</option>
+                        <option value="rust">Rust</option>
+                        <option value="typescript">TypeScript</option>
+                    </select>
+                </div>
+                <div class="example-selector">
+                    <label>Load Example:</label>
+                    <select id="exampleSelect">
+                        <option value="">Custom Code</option>
+                        <option value="memory-leak">Memory Leak</option>
+                        <option value="sql-injection">SQL Injection</option>
+                        <option value="race-condition">Race Condition</option>
+                        <option value="performance">Performance Issue</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="demo-main">
+                <div class="code-input-section">
+                    <h3>Paste Your Code</h3>
+                    <div class="code-editor">
+                        <textarea id="codeInput" placeholder="Paste your code here for review...">function processUserData(users) {
+    let results = [];
+    for (let i = 0; i < users.length; i++) {
+        // Process each user
+        fetch('/api/user/' + users[i].id)
+            .then(response => response.json())
+            .then(data => {
+                results.push(data);
+            });
+    }
+    return results;
+}</textarea>
+                        <div class="code-stats">
+                            <span id="lineCount">12 lines</span>
+                            <span id="tokenCount">~45 tokens</span>
+                        </div>
+                    </div>
+                    <button id="reviewButton" class="review-button">
+                        <span class="button-text">Review Code</span>
+                        <span class="button-loader" style="display: none;">Analyzing...</span>
+                    </button>
+                </div>
+
+                <div class="review-output-section">
+                    <h3>Review Results</h3>
+                    <div id="reviewResults" class="review-results">
+                        <div class="placeholder">
+                            <p>👈 Paste your code and click "Review Code" to get started</p>
+                            <p class="placeholder-hint">The agent will analyze for bugs, performance issues, security vulnerabilities, and best practices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-bar">
+                <div class="metric">
+                    <span class="metric-label">Response Time:</span>
+                    <span class="metric-value" id="responseTime">--</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Tokens Used:</span>
+                    <span class="metric-value" id="tokensUsed">--</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Est. Cost:</span>
+                    <span class="metric-value" id="estimatedCost">--</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Model:</span>
+                    <span class="metric-value" id="modelUsed">GPT-3.5</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="agent-info">
+            <h3>// How It Works</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>🔍 Smart Analysis</h4>
+                    <p>Uses GPT-3.5 Turbo for fast, accurate reviews. Upgrades to GPT-4 for complex code automatically.</p>
+                </div>
+                <div class="info-card">
+                    <h4>⚡ Real-time Metrics</h4>
+                    <p>See exactly how long reviews take, how many tokens are used, and what it costs. No surprises.</p>
+                </div>
+                <div class="info-card">
+                    <h4>🛡️ Security First</h4>
+                    <p>Code is never stored. Reviews happen in memory and are discarded immediately after display.</p>
+                </div>
+                <div class="info-card">
+                    <h4>📊 Confidence Scores</h4>
+                    <p>Each suggestion includes a confidence level, so you know which issues are critical vs nice-to-have.</p>
+                </div>
+            </div>
+
+            <h3>// What It Catches</h3>
+            <ul class="feature-list">
+                <li>Memory leaks and resource management issues</li>
+                <li>Security vulnerabilities (SQL injection, XSS, etc.)</li>
+                <li>Race conditions and concurrency bugs</li>
+                <li>Performance bottlenecks and optimization opportunities</li>
+                <li>Code style and best practice violations</li>
+                <li>Missing error handling and edge cases</li>
+                <li>Accessibility and internationalization issues</li>
+                <li>Dead code and unused variables</li>
+            </ul>
+
+            <h3>// Integration Options</h3>
+            <div class="integration-examples">
+                <div class="integration-card">
+                    <h4>GitHub Action</h4>
+                    <pre><code>- uses: binarybourbon/ai-code-review@v1
+  with:
+    model: gpt-3.5-turbo
+    threshold: medium</code></pre>
+                </div>
+                <div class="integration-card">
+                    <h4>CLI Tool</h4>
+                    <pre><code>npm install -g @binarybourbon/code-review
+code-review src/**/*.js --json</code></pre>
+                </div>
+                <div class="integration-card">
+                    <h4>API Endpoint</h4>
+                    <pre><code>POST /api/review
+{
+  "code": "function() { ... }",
+  "language": "javascript"
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p class="terminal-cursor">$ review --smart --fast <span class="cursor">_</span></p>
+        </footer>
+    </div>
+
+    <script src="/assets/js/theme.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="/assets/js/code-review-agent.js"></script>
+</body>
+</html>

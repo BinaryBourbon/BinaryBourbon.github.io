@@ -1,0 +1,341 @@
+/* Portfolio page styles */
+.portfolio-hero {
+    text-align: center;
+    padding: 3rem 0;
+    margin-bottom: 3rem;
+}
+
+.portfolio-hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.portfolio-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Active nav state */
+.blog-nav a.active {
+    color: var(--primary);
+    position: relative;
+}
+
+.blog-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary);
+}
+
+/* Featured section */
+.portfolio-featured {
+    margin-bottom: 4rem;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.project-card {
+    background: var(--bg-medium);
+    border: 1px solid rgba(0, 255, 65, 0.2);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card.featured {
+    min-height: 280px;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.project-card:hover::before {
+    left: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: 0 8px 24px rgba(0, 255, 65, 0.2);
+}
+
+.project-card.coming-soon {
+    opacity: 0.7;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.project-header h3 {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 1.4rem;
+}
+
+.project-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-family: 'Space Mono', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.project-badge.live {
+    background: rgba(0, 255, 65, 0.2);
+    color: var(--primary);
+}
+
+.project-badge.soon {
+    background: rgba(0, 212, 255, 0.2);
+    color: var(--secondary);
+}
+
+.project-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+
+.project-features span {
+    color: var(--secondary);
+    font-family: 'Space Mono', monospace;
+}
+
+.project-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 255, 65, 0.1);
+    font-size: 0.85rem;
+}
+
+/* Tools grid */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.tool-card {
+    background: var(--bg-medium);
+    border: 1px solid rgba(0, 255, 65, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary);
+}
+
+.tool-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.tool-card h4 {
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.tool-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* Demo list */
+.demo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.demo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--bg-medium);
+    border: 1px solid rgba(0, 255, 65, 0.2);
+    border-radius: 8px;
+}
+
+.demo-content {
+    flex: 1;
+    margin-right: 2rem;
+}
+
+.demo-content h4 {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.demo-content p {
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+.demo-tags {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.demo-button {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.demo-button:hover:not(:disabled) {
+    background: rgba(0, 255, 65, 0.1);
+}
+
+.demo-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Repository grid */
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.repo-card {
+    display: block;
+    background: var(--bg-medium);
+    border: 1px solid rgba(0, 255, 65, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+.repo-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(0, 255, 65, 0.1);
+}
+
+.repo-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.repo-icon {
+    font-size: 1.5rem;
+}
+
+.repo-header h4 {
+    margin: 0;
+    color: var(--secondary);
+    font-family: 'Space Mono', monospace;
+}
+
+.repo-card p {
+    line-height: 1.5;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.repo-stats {
+    display: flex;
+    gap: 1rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .demo-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .demo-content {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .demo-button {
+        width: 100%;
+    }
+    
+    .project-stats {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .project-card,
+[data-theme="light"] .tool-card,
+[data-theme="light"] .demo-item,
+[data-theme="light"] .repo-card {
+    background: #f5f5f5;
+    border-color: rgba(0, 166, 49, 0.2);
+}
+
+[data-theme="light"] .project-badge.live {
+    background: rgba(0, 166, 49, 0.2);
+}
+
+[data-theme="light"] .project-badge.soon {
+    background: rgba(0, 132, 168, 0.2);
+}
