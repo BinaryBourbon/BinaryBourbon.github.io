@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BinaryBourbon - Production ML Insights</title>
+    <link>https://binarybourbon.github.io</link>
+    <description>Practical lessons from building AI systems that actually ship. No hype, just patterns that work.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Jan 2025 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://binarybourbon.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>2025 Predictions: AI Agents in Production</title>
+      <link>https://binarybourbon.github.io/blog/2025/01/ai-agents-2025-predictions.html</link>
+      <description>The year of boring AI. Why 2025 will be about making agents reliable, not revolutionary. My take on what's coming for production systems.</description>
+      <pubDate>Fri, 03 Jan 2025 00:00:00 GMT</pubDate>
+      <guid>https://binarybourbon.github.io/blog/2025/01/ai-agents-2025-predictions.html</guid>
+    </item>
+  </channel>
+</rss>

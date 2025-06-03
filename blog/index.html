@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - BinaryBourbon</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../assets/css/blog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="BinaryBourbon Blog" href="/rss.xml">
+</head>
+<body>
+    <!-- Dark mode toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="themeIcon">
+            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+    </button>
+
+    <div class="container">
+        <header class="blog-header">
+            <h1><a href="/" class="home-link">BinaryBourbon</a></h1>
+            <nav class="blog-nav">
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+                <a href="/portfolio">Portfolio</a>
+                <a href="/rss.xml">RSS</a>
+            </nav>
+        </header>
+
+        <section class="blog-hero">
+            <h2>// Production ML Insights</h2>
+            <p>Practical lessons from building AI systems that actually ship. No hype, just patterns that work.</p>
+        </section>
+
+        <section class="blog-posts">
+            <article class="blog-post-preview">
+                <time class="post-date">2025-01-03</time>
+                <h3><a href="/blog/2025/01/ai-agents-2025-predictions.html">2025 Predictions: AI Agents in Production</a></h3>
+                <p>The year of boring AI. Why 2025 will be about making agents reliable, not revolutionary. My take on what's coming for production systems.</p>
+                <div class="post-meta">
+                    <span class="read-time">5 min read</span>
+                    <span class="post-tags">
+                        <span class="tag">ai-agents</span>
+                        <span class="tag">predictions</span>
+                        <span class="tag">production</span>
+                    </span>
+                </div>
+            </article>
+
+            <article class="blog-post-preview">
+                <time class="post-date">2025-01-08</time>
+                <h3><a href="#">From 2s to 200ms: Optimizing LLM Inference at Stripe</a></h3>
+                <p>Technical deep dive into reducing latency by 90% while maintaining accuracy. Quantization, batching, and clever routing strategies that actually work.</p>
+                <div class="post-meta">
+                    <span class="read-time">12 min read</span>
+                    <span class="post-tags">
+                        <span class="tag">case-study</span>
+                        <span class="tag">optimization</span>
+                        <span class="tag">stripe</span>
+                    </span>
+                </div>
+            </article>
+
+            <article class="blog-post-preview">
+                <time class="post-date">2025-01-15</time>
+                <h3><a href="#">Why Your AI Agent Needs a Cache</a></h3>
+                <p>How we reduced inference costs by 95% with smart caching strategies. Real patterns from production systems handling millions of requests.</p>
+                <div class="post-meta">
+                    <span class="read-time">8 min read</span>
+                    <span class="post-tags">
+                        <span class="tag">caching</span>
+                        <span class="tag">cost-optimization</span>
+                        <span class="tag">patterns</span>
+                    </span>
+                </div>
+            </article>
+        </section>
+
+        <footer>
+            <p class="terminal-cursor">$ echo "Ship boring AI that works" <span class="cursor">_</span></p>
+        </footer>
+    </div>
+
+    <script src="../assets/js/theme.js"></script>
+</body>
+</html>
