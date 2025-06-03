@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | BinaryBourbon</title>
+    <meta name="description" content="Oops! The page you're looking for doesn't exist. Let's get you back on track.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 4rem 2rem;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 1rem;
+            animation: glitch-404 2s infinite;
+        }
+        
+        @keyframes glitch-404 {
+            0%, 100% {
+                text-shadow: 
+                    0.05em 0 0 var(--secondary),
+                    -0.05em -0.025em 0 var(--accent),
+                    0.025em 0.05em 0 var(--primary);
+            }
+            14% {
+                text-shadow: 
+                    0.05em 0 0 var(--secondary),
+                    -0.05em -0.025em 0 var(--accent),
+                    0.025em 0.05em 0 var(--primary);
+            }
+            15% {
+                text-shadow: 
+                    -0.05em -0.025em 0 var(--secondary),
+                    0.025em 0.025em 0 var(--accent),
+                    -0.05em -0.05em 0 var(--primary);
+            }
+            49% {
+                text-shadow: 
+                    -0.05em -0.025em 0 var(--secondary),
+                    0.025em 0.025em 0 var(--accent),
+                    -0.05em -0.05em 0 var(--primary);
+            }
+            50% {
+                text-shadow: 
+                    0.025em 0.05em 0 var(--secondary),
+                    0.05em 0 0 var(--accent),
+                    0 -0.05em 0 var(--primary);
+            }
+            99% {
+                text-shadow: 
+                    0.025em 0.05em 0 var(--secondary),
+                    0.05em 0 0 var(--accent),
+                    0 -0.05em 0 var(--primary);
+            }
+        }
+        
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .error-description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 500px;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .error-link {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Space Mono', monospace;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+        
+        .error-link:hover {
+            background: var(--primary);
+            color: var(--bg-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 255, 65, 0.4);
+        }
+        
+        .error-link.primary {
+            background: var(--primary);
+            color: var(--bg-dark);
+            font-weight: bold;
+        }
+        
+        .error-link.primary:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+        
+        .terminal-hint {
+            margin-top: 3rem;
+            padding: 1rem;
+            background: var(--bg-medium);
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            border-radius: 4px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+        
+        @media (max-width: 640px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            
+            .error-message {
+                font-size: 1.2rem;
+            }
+            
+            .error-actions {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .error-link {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dark mode toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="themeIcon">
+            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+    </button>
+
+    <div class="container">
+        <nav class="main-nav">
+            <a href="/" class="nav-logo">BB</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+                <a href="/portfolio">Portfolio</a>
+                <a href="https://github.com/BinaryBourbon" target="_blank" rel="noopener">GitHub</a>
+                <a href="/rss.xml" class="rss-link" title="RSS Feed">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.429 5.1v2.4c7.248 0 13.114 5.867 13.114 13.114h2.4C18.943 12.533 12.51 5.1 3.429 5.1zm0 4.8v2.4a4.351 4.351 0 014.314 4.314h2.4c0-3.705-3.009-6.714-6.714-6.714zM6.171 16.657a1.371 1.371 0 11-2.742 0 1.371 1.371 0 012.742 0z"/>
+                    </svg>
+                </a>
+            </div>
+        </nav>
+
+        <div class="error-container">
+            <div class="error-code">404</div>
+            <h1 class="error-message">Page Not Found</h1>
+            <p class="error-description">
+                Looks like this page got lost in the latent space. It might have been moved, deleted, or perhaps it never existed in this dimension.
+            </p>
+            
+            <div class="error-actions">
+                <a href="/" class="error-link primary">Go Home</a>
+                <a href="/blog" class="error-link">Read Blog</a>
+                <a href="/portfolio" class="error-link">View Portfolio</a>
+            </div>
+            
+            <div class="terminal-hint">
+                $ find . -name "page-you-want" 2>/dev/null || echo "Try one of the links above"
+            </div>
+        </div>
+
+        <footer>
+            <p class="terminal-cursor">$ handle_error --gracefully <span class="cursor">_</span></p>
+        </footer>
+    </div>
+
+    <script src="/assets/js/theme.js"></script>
+    <script>
+        // Log 404s for monitoring (if you add analytics later)
+        console.log('404 page loaded for:', window.location.pathname);
+    </script>
+</body>
+</html>

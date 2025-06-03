@@ -28,6 +28,22 @@
     .calculator-main {
         grid-template-columns: 1fr;
     }
+    
+    .model-comparison {
+        grid-column: span 1;
+    }
+    
+    .cost-breakdown {
+        grid-column: span 1;
+    }
+    
+    .recommendations {
+        grid-column: span 1;
+    }
+    
+    .export-section {
+        grid-column: span 1;
+    }
 }
 
 .calculator-inputs {
@@ -98,6 +114,20 @@
     margin-top: 1rem;
 }
 
+@media (max-width: 480px) {
+    .model-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .model-card {
+        padding: 1rem;
+    }
+    
+    .model-cost {
+        font-size: 1.8rem;
+    }
+}
+
 .model-card {
     background: var(--bg-medium);
     border: 1px solid rgba(0, 255, 65, 0.2);
@@ -105,6 +135,25 @@
     padding: 1.5rem;
     transition: all 0.3s ease;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.model-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-dark);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.model-card.loading::after {
+    opacity: 0.5;
 }
 
 .model-card.selected {
@@ -246,6 +295,18 @@
 .pricing-table {
     margin-top: 1rem;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+    .pricing-table {
+        font-size: 0.85rem;
+    }
+    
+    .pricing-table th,
+    .pricing-table td {
+        padding: 0.5rem;
+    }
 }
 
 .pricing-table table {

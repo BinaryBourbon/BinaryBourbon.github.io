@@ -1,0 +1,189 @@
+/* Custom Prism.js theme for BinaryBourbon - Based on Tomorrow Night */
+code[class*="language-"],
+pre[class*="language-"] {
+    color: #e0e0e0;
+    background: none;
+    font-family: 'Space Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 0.9rem;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.6;
+    tab-size: 4;
+    hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    overflow: auto;
+    border-radius: 8px;
+    background: #0a0a0a;
+    border: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    white-space: normal;
+    background: rgba(0, 255, 65, 0.1);
+    color: #00ff41;
+}
+
+/* Light theme adjustments */
+[data-theme="light"] :not(pre) > code[class*="language-"] {
+    background: rgba(0, 166, 49, 0.1);
+    color: #00a631;
+}
+
+[data-theme="light"] pre[class*="language-"] {
+    background: #f5f5f5;
+    border-color: rgba(0, 166, 49, 0.2);
+    color: #1a1a1a;
+}
+
+/* Syntax highlighting */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #969896;
+}
+
+.token.punctuation {
+    color: #e0e0e0;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #00d4ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #00ff41;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #ff00ff;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #00d4ff;
+}
+
+.token.function,
+.token.class-name {
+    color: #f0c674;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #ff00ff;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+/* Line numbers */
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em;
+    letter-spacing: -1px;
+    border-right: 1px solid rgba(0, 255, 65, 0.2);
+    user-select: none;
+}
+
+.line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+    content: counter(linenumber);
+    color: #969896;
+    display: block;
+    padding-right: 0.8em;
+    text-align: right;
+}
+
+/* Selection */
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background: rgba(0, 255, 65, 0.3);
+}
+
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: rgba(0, 255, 65, 0.3);
+}
+
+/* Scrollbar styling */
+pre[class*="language-"]::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 65, 0.3);
+    border-radius: 5px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 65, 0.5);
+}

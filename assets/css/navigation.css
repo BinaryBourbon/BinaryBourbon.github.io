@@ -1,0 +1,118 @@
+/* Navigation styles shared across all pages */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.nav-logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+}
+
+.nav-logo:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.rss-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem !important;
+}
+
+.rss-link:hover {
+    color: var(--secondary) !important;
+}
+
+/* Mobile navigation */
+@media (max-width: 640px) {
+    .main-nav {
+        flex-wrap: wrap;
+        padding: 1rem 0;
+    }
+    
+    .nav-logo {
+        font-size: 1.25rem;
+        padding: 0.5rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .nav-links a {
+        padding: 0.25rem 0;
+    }
+}
+
+/* Active page indicator */
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Skip to content link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary);
+    color: var(--bg-dark);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}

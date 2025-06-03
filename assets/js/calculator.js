@@ -149,17 +149,27 @@ function calculateModelCost(modelKey, inputs) {
 function updateCalculations() {
     const inputs = getInputValues();
     
-    // Update all model cards
-    renderModelCards();
+    // Show loading state
+    const cards = document.querySelectorAll('.model-card');
+    cards.forEach(card => card.style.opacity = '0.6');
     
-    // Calculate savings
-    updateSavingsAnalysis(inputs);
-    
-    // Generate recommendations
-    updateRecommendations(inputs);
-    
-    // Update chart
-    updateCostChart(inputs);
+    // Simulate calculation delay for better UX
+    setTimeout(() => {
+        // Update all model cards
+        renderModelCards();
+        
+        // Calculate savings
+        updateSavingsAnalysis(inputs);
+        
+        // Generate recommendations
+        updateRecommendations(inputs);
+        
+        // Update chart
+        updateCostChart(inputs);
+        
+        // Remove loading state
+        cards.forEach(card => card.style.opacity = '1');
+    }, 100);
 }
 
 function updateSavingsAnalysis(inputs) {

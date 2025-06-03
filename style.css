@@ -1,3 +1,6 @@
+/* Import navigation styles */
+@import url('/assets/css/navigation.css');
+
 :root {
     --primary: #00ff41;
     --secondary: #00d4ff;

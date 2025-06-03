@@ -3,12 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Review Agent - BinaryBourbon</title>
-    <meta name="description" content="AI-powered code review that catches bugs, suggests improvements, and ensures best practices. See costs and confidence scores in real-time.">
+    <title>AI Code Review Agent - BinaryBourbon | Instant Bug Detection & Security Analysis</title>
+    <meta name="description" content="Free AI-powered code review tool. Catches bugs, security vulnerabilities, and performance issues in seconds. Supports JavaScript, Python, Go, Rust. Try the live demo now.">
+    <meta name="keywords" content="AI code review, automated code review, bug detection AI, security vulnerability scanner, code analysis tool, AI programming assistant">
+    <meta name="author" content="Benjamin Bourbon">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="AI Code Review Agent - BinaryBourbon | Instant Bug Detection">
+    <meta property="og:description" content="Free AI-powered code review. Catches bugs, security issues, and performance problems in seconds. Try the live demo.">
+    <meta property="og:image" content="https://binarybourbon.github.io/assets/images/code-review-og.png">
+    <meta property="og:url" content="https://binarybourbon.github.io/portfolio/code-review-agent.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BinaryBourbon">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Code Review Agent - Instant Bug Detection & Security Analysis">
+    <meta name="twitter:description" content="Free AI-powered code review. Catches bugs, security issues, and performance problems in seconds. Try the live demo.">
+    <meta name="twitter:image" content="https://binarybourbon.github.io/assets/images/code-review-og.png">
+    
+    <link rel="canonical" href="https://binarybourbon.github.io/portfolio/code-review-agent.html">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/assets/css/code-review.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="/assets/css/prism-custom.css">
 </head>
 <body>
     <!-- Dark mode toggle -->
@@ -19,15 +37,20 @@
     </button>
 
     <div class="container">
-        <header class="blog-header">
-            <h1><a href="/" class="home-link">BinaryBourbon</a></h1>
-            <nav class="blog-nav">
+        <nav class="main-nav">
+            <a href="/" class="nav-logo">BB</a>
+            <div class="nav-links">
                 <a href="/">Home</a>
                 <a href="/blog">Blog</a>
-                <a href="/portfolio">Portfolio</a>
-                <a href="/rss.xml">RSS</a>
-            </nav>
-        </header>
+                <a href="/portfolio" class="active">Portfolio</a>
+                <a href="https://github.com/BinaryBourbon" target="_blank" rel="noopener">GitHub</a>
+                <a href="/rss.xml" class="rss-link" title="RSS Feed">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.429 5.1v2.4c7.248 0 13.114 5.867 13.114 13.114h2.4C18.943 12.533 12.51 5.1 3.429 5.1zm0 4.8v2.4a4.351 4.351 0 014.314 4.314h2.4c0-3.705-3.009-6.714-6.714-6.714zM6.171 16.657a1.371 1.371 0 11-2.742 0 1.371 1.371 0 012.742 0z"/>
+                    </svg>
+                </a>
+            </div>
+        </nav>
 
         <section class="agent-hero">
             <h2>// Code Review Agent</h2>
