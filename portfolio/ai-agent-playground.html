@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent Playground - BinaryBourbon | Test Drive Production-Ready AI Agents</title>
+    <meta name="description" content="Interactive playground to test AI agents for code review, debugging, and architecture advice. See real-world agent capabilities with production-grade error handling.">
+    <meta name="keywords" content="AI agents, code review AI, debugging assistant, architecture advisor, LLM playground">
+    <meta name="author" content="Benjamin Bourbon">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="AI Agent Playground - Test Production-Ready AI Agents">
+    <meta property="og:description" content="Interactive demos of AI agents for code review, debugging, and architecture advice. Try them live!">
+    <meta property="og:url" content="https://binarybourbon.github.io/portfolio/ai-agent-playground.html">
+    <meta property="og:type" content="website">
+    
+    <link rel="canonical" href="https://binarybourbon.github.io/portfolio/ai-agent-playground.html">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/assets/css/playground.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <!-- Dark mode toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="themeIcon">
+            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+    </button>
+
+    <div class="container">
+        <nav class="main-nav">
+            <a href="/" class="nav-logo">BB</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+                <a href="/portfolio" class="active">Portfolio</a>
+                <a href="/workshops">Workshops</a>
+                <a href="https://github.com/BinaryBourbon" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </nav>
+
+        <section class="playground-hero">
+            <h1>// AI Agent Playground</h1>
+            <p>Test drive production-ready AI agents. Real implementations with error handling, caching, and fallbacks.</p>
+            <div class="playground-stats">
+                <span class="stat-item">⚡ <100ms response</span>
+                <span class="stat-item">🛡️ Error boundaries</span>
+                <span class="stat-item">💰 Cost optimized</span>
+            </div>
+        </section>
+
+        <section class="agent-selector">
+            <h2>Choose an Agent</h2>
+            <div class="agent-tabs">
+                <button class="agent-tab active" data-agent="code-review">
+                    <span class="tab-icon">🔍</span>
+                    <span class="tab-label">Code Review</span>
+                </button>
+                <button class="agent-tab" data-agent="debug-assistant">
+                    <span class="tab-icon">🐛</span>
+                    <span class="tab-label">Debug Assistant</span>
+                </button>
+                <button class="agent-tab" data-agent="architecture-advisor">
+                    <span class="tab-icon">🏗️</span>
+                    <span class="tab-label">Architecture Advisor</span>
+                </button>
+                <button class="agent-tab" data-agent="perf-optimizer">
+                    <span class="tab-icon">🚀</span>
+                    <span class="tab-label">Performance Optimizer</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Code Review Agent -->
+        <section class="agent-panel active" id="code-review-panel">
+            <div class="agent-header">
+                <h3>Code Review Agent</h3>
+                <p>Automated code review focusing on bugs, security, and best practices.</p>
+            </div>
+
+            <div class="agent-interface">
+                <div class="input-section">
+                    <label for="code-input">Paste your code:</label>
+                    <div class="code-input-wrapper">
+                        <select id="language-select" class="language-select">
+                            <option value="javascript">JavaScript</option>
+                            <option value="python">Python</option>
+                            <option value="typescript">TypeScript</option>
+                            <option value="go">Go</option>
+                            <option value="rust">Rust</option>
+                        </select>
+                        <textarea id="code-input" class="code-input" placeholder="// Paste your code here...
+function processData(data) {
+    for (let i = 0; i <= data.length; i++) {
+        console.log(data[i].name);
+    }
+}"></textarea>
+                    </div>
+                    
+                    <div class="options-section">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="security-check" checked>
+                            Security analysis
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="perf-check" checked>
+                            Performance review
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="style-check">
+                            Style guide compliance
+                        </label>
+                    </div>
+
+                    <button class="analyze-btn" id="analyze-code">
+                        <span class="btn-text">Analyze Code</span>
+                        <span class="btn-loader" style="display: none;">Analyzing...</span>
+                    </button>
+                </div>
+
+                <div class="output-section">
+                    <div class="output-header">
+                        <h4>Review Results</h4>
+                        <div class="output-meta" id="review-meta" style="display: none;">
+                            <span class="meta-item">Model: <span id="model-used">-</span></span>
+                            <span class="meta-item">Latency: <span id="latency">-</span>ms</span>
+                            <span class="meta-item">Cached: <span id="cached">-</span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="review-results" id="review-results">
+                        <div class="placeholder-message">
+                            <p>👆 Paste some code and click "Analyze Code" to see the AI review.</p>
+                            <p class="hint">Try introducing a bug or security issue to see how the agent responds!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-section">
+                <h4>Try These Examples:</h4>
+                <div class="example-buttons">
+                    <button class="example-btn" data-example="sql-injection">SQL Injection Bug</button>
+                    <button class="example-btn" data-example="memory-leak">Memory Leak</button>
+                    <button class="example-btn" data-example="race-condition">Race Condition</button>
+                    <button class="example-btn" data-example="n-plus-one">N+1 Query</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Debug Assistant Agent -->
+        <section class="agent-panel" id="debug-assistant-panel">
+            <div class="agent-header">
+                <h3>Debug Assistant</h3>
+                <p>Helps identify and fix errors with step-by-step guidance.</p>
+            </div>
+
+            <div class="agent-interface">
+                <div class="input-section">
+                    <label for="error-input">Describe your error:</label>
+                    <textarea id="error-input" class="error-input" placeholder="TypeError: Cannot read property 'name' of undefined
+at processUser (app.js:42)
+at Array.map (<anonymous>)
+at getUsers (app.js:38)"></textarea>
+                    
+                    <label for="context-input">Relevant code (optional):</label>
+                    <textarea id="context-input" class="context-input" placeholder="// Add any relevant code context here"></textarea>
+
+                    <button class="analyze-btn" id="debug-error">
+                        <span class="btn-text">Debug Error</span>
+                        <span class="btn-loader" style="display: none;">Analyzing...</span>
+                    </button>
+                </div>
+
+                <div class="output-section">
+                    <div class="debug-results" id="debug-results">
+                        <div class="placeholder-message">
+                            <p>🐛 Paste an error message to get debugging help.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture Advisor Agent -->
+        <section class="agent-panel" id="architecture-advisor-panel">
+            <div class="agent-header">
+                <h3>Architecture Advisor</h3>
+                <p>Get recommendations for system design and architecture decisions.</p>
+            </div>
+
+            <div class="agent-interface">
+                <div class="input-section">
+                    <label for="architecture-input">Describe your system:</label>
+                    <textarea id="architecture-input" class="architecture-input" placeholder="We're building a real-time chat application that needs to:
+- Support 10k concurrent users
+- Handle file uploads up to 100MB
+- Provide end-to-end encryption
+- Work offline with sync when online"></textarea>
+                    
+                    <div class="constraints-section">
+                        <h5>Constraints:</h5>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="budget-constraint">
+                            Budget < $1000/month
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="team-constraint">
+                            Small team (< 5 devs)
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="compliance-constraint">
+                            Compliance requirements (GDPR/HIPAA)
+                        </label>
+                    </div>
+
+                    <button class="analyze-btn" id="get-architecture">
+                        <span class="btn-text">Get Recommendations</span>
+                        <span class="btn-loader" style="display: none;">Thinking...</span>
+                    </button>
+                </div>
+
+                <div class="output-section">
+                    <div class="architecture-results" id="architecture-results">
+                        <div class="placeholder-message">
+                            <p>🏗️ Describe your system requirements to get architecture recommendations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Optimizer Agent -->
+        <section class="agent-panel" id="perf-optimizer-panel">
+            <div class="agent-header">
+                <h3>Performance Optimizer</h3>
+                <p>Analyze and optimize code for better performance.</p>
+            </div>
+
+            <div class="agent-interface">
+                <div class="input-section">
+                    <label for="perf-code-input">Code to optimize:</label>
+                    <textarea id="perf-code-input" class="code-input" placeholder="// Paste code that needs optimization
+function findDuplicates(arr) {
+    const duplicates = [];
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] === arr[j] && !duplicates.includes(arr[i])) {
+                duplicates.push(arr[i]);
+            }
+        }
+    }
+    return duplicates;
+}"></textarea>
+                    
+                    <div class="perf-options">
+                        <label for="complexity-level">Optimization level:</label>
+                        <select id="complexity-level">
+                            <option value="basic">Basic (Readability priority)</option>
+                            <option value="balanced" selected>Balanced</option>
+                            <option value="aggressive">Aggressive (Performance priority)</option>
+                        </select>
+                    </div>
+
+                    <button class="analyze-btn" id="optimize-code">
+                        <span class="btn-text">Optimize Code</span>
+                        <span class="btn-loader" style="display: none;">Optimizing...</span>
+                    </button>
+                </div>
+
+                <div class="output-section">
+                    <div class="perf-results" id="perf-results">
+                        <div class="placeholder-message">
+                            <p>⚡ Paste code to get performance optimization suggestions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="playground-info">
+            <h2>// Under the Hood</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🛡️ Error Boundaries</h3>
+                    <p>Every agent has fallback strategies. If the primary model fails, we gracefully degrade to cached responses or simpler models.</p>
+                </div>
+                <div class="info-card">
+                    <h3>💰 Cost Optimization</h3>
+                    <p>Smart routing sends simple queries to GPT-3.5, complex ones to GPT-4. Semantic caching reduces duplicate API calls by 90%.</p>
+                </div>
+                <div class="info-card">
+                    <h3>⚡ Low Latency</h3>
+                    <p>Response streaming, edge caching, and parallel processing keep responses under 100ms for cached queries.</p>
+                </div>
+                <div class="info-card">
+                    <h3>📊 Real Metrics</h3>
+                    <p>Every response shows actual model used, cache hit status, and latency. No magic, just good engineering.</p>
+                </div>
+            </div>
+
+            <div class="implementation-note">
+                <p><strong>Note:</strong> This playground uses production patterns but with rate limiting for demo purposes. 
+                <a href="https://github.com/BinaryBourbon/ai-agent-playground" target="_blank">View the source code</a> to implement in your own projects.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p class="terminal-cursor">$ agents --production-ready <span class="cursor">_</span></p>
+        </footer>
+    </div>
+
+    <script src="/assets/js/theme.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="/assets/js/playground.js"></script>
+</body>
+</html>

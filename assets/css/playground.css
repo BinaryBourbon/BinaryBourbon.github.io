@@ -1,0 +1,505 @@
+/* AI Agent Playground styles */
+.playground-hero {
+    text-align: center;
+    padding: 3rem 0;
+    margin-bottom: 3rem;
+}
+
+.playground-hero h1 {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-family: 'Space Mono', monospace;
+}
+
+.playground-hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    opacity: 0.9;
+}
+
+.playground-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    font-family: 'Space Mono', monospace;
+    color: var(--secondary);
+    font-size: 0.9rem;
+}
+
+/* Agent selector */
+.agent-selector {
+    margin-bottom: 3rem;
+}
+
+.agent-selector h2 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 2rem;
+}
+
+.agent-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.agent-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--bg-medium);
+    border: 1px solid rgba(0, 255, 65, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-light);
+}
+
+.agent-tab:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.agent-tab.active {
+    background: rgba(0, 255, 65, 0.1);
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(0, 255, 65, 0.2);
+}
+
+.tab-icon {
+    font-size: 1.5rem;
+}
+
+.tab-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+}
+
+/* Agent panels */
+.agent-panel {
+    display: none;
+    background: var(--bg-medium);
+    border: 1px solid rgba(0, 255, 65, 0.2);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.agent-panel.active {
+    display: block;
+}
+
+.agent-header {
+    margin-bottom: 2rem;
+}
+
+.agent-header h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.agent-header p {
+    opacity: 0.9;
+}
+
+/* Agent interface */
+.agent-interface {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 968px) {
+    .agent-interface {
+        grid-template-columns: 1fr;
+    }
+}
+
+.input-section, .output-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Input elements */
+.code-input-wrapper {
+    position: relative;
+}
+
+.language-select {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: var(--bg-dark);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    color: var(--primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.code-input, .error-input, .context-input, .architecture-input {
+    width: 100%;
+    min-height: 200px;
+    padding: 1rem;
+    background: var(--bg-dark);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    border-radius: 4px;
+    color: var(--text-light);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    resize: vertical;
+}
+
+.code-input {
+    padding-top: 2.5rem;
+}
+
+.code-input:focus, .error-input:focus, .context-input:focus, .architecture-input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Options */
+.options-section, .constraints-section, .perf-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(0, 255, 65, 0.05);
+    border-radius: 4px;
+}
+
+.constraints-section h5 {
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary);
+}
+
+.perf-options {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.perf-options select {
+    background: var(--bg-dark);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    color: var(--text-light);
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+}
+
+/* Analyze button */
+.analyze-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.analyze-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 255, 65, 0.4);
+}
+
+.analyze-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.btn-loader {
+    display: none;
+}
+
+/* Output section */
+.output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.output-header h4 {
+    color: var(--secondary);
+}
+
+.output-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    font-family: 'Space Mono', monospace;
+}
+
+.meta-item {
+    color: var(--text-light);
+    opacity: 0.8;
+}
+
+.meta-item span {
+    color: var(--primary);
+}
+
+/* Results sections */
+.review-results, .debug-results, .architecture-results, .perf-results {
+    background: var(--bg-dark);
+    border: 1px solid rgba(0, 255, 65, 0.2);
+    border-radius: 4px;
+    padding: 1.5rem;
+    min-height: 300px;
+}
+
+.placeholder-message {
+    text-align: center;
+    opacity: 0.7;
+    padding: 3rem 1rem;
+}
+
+.placeholder-message p {
+    margin-bottom: 1rem;
+}
+
+.hint {
+    font-size: 0.9rem;
+    color: var(--secondary);
+}
+
+/* Review results styling */
+.review-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(0, 255, 65, 0.05);
+    border-radius: 4px;
+    border-left: 3px solid var(--primary);
+}
+
+.review-severity {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.severity-high {
+    background: rgba(255, 0, 0, 0.2);
+    color: #ff6b6b;
+}
+
+.severity-medium {
+    background: rgba(255, 165, 0, 0.2);
+    color: #ffa500;
+}
+
+.severity-low {
+    background: rgba(0, 255, 65, 0.2);
+    color: var(--primary);
+}
+
+.review-item h5 {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.review-item p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.code-snippet {
+    background: var(--bg-medium);
+    padding: 0.5rem;
+    border-radius: 3px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
+    overflow-x: auto;
+}
+
+/* Example section */
+.example-section {
+    margin-top: 2rem;
+}
+
+.example-section h4 {
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.example-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.example-btn {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.example-btn:hover {
+    background: rgba(0, 255, 65, 0.1);
+}
+
+/* Info section */
+.playground-info {
+    margin: 4rem 0;
+}
+
+.playground-info h2 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 2rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-card {
+    background: var(--bg-medium);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.info-card h3 {
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.info-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.implementation-note {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 255, 65, 0.05);
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.implementation-note a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.implementation-note a:hover {
+    text-decoration: underline;
+}
+
+/* Loading state */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.loading::after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(0, 255, 65, 0.2);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Response animation */
+.response-message {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .agent-panel {
+    background: #f5f5f5;
+    border-color: rgba(0, 166, 49, 0.2);
+}
+
+[data-theme="light"] .code-input,
+[data-theme="light"] .error-input,
+[data-theme="light"] .context-input,
+[data-theme="light"] .architecture-input {
+    background: #ffffff;
+    border-color: rgba(0, 166, 49, 0.3);
+}
+
+[data-theme="light"] .review-results,
+[data-theme="light"] .debug-results,
+[data-theme="light"] .architecture-results,
+[data-theme="light"] .perf-results {
+    background: #ffffff;
+    border-color: rgba(0, 166, 49, 0.2);
+}
+
+[data-theme="light"] .analyze-btn {
+    color: #ffffff;
+}
+
+[data-theme="light"] .language-select,
+[data-theme="light"] .perf-options select {
+    background: #ffffff;
+    border-color: rgba(0, 166, 49, 0.3);
+}

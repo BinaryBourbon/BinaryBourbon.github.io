@@ -5,8 +5,16 @@
     <link>https://binarybourbon.github.io</link>
     <description>Practical lessons from building AI systems that actually ship. No hype, just patterns that work.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Feb 2025 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 12 Feb 2025 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://binarybourbon.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>Error Boundaries for AI: What React Taught Me About LLM Failures</title>
+      <link>https://binarybourbon.github.io/blog/2025/02/error-boundaries-for-ai.html</link>
+      <description>How to build resilient AI systems that gracefully handle failures. Practical patterns from production deployments handling 10M+ requests.</description>
+      <pubDate>Wed, 12 Feb 2025 00:00:00 GMT</pubDate>
+      <guid>https://binarybourbon.github.io/blog/2025/02/error-boundaries-for-ai.html</guid>
+    </item>
     
     <item>
       <title>Building Cost-Effective RAG: From $3K to $150/month</title>
